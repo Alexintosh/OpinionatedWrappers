@@ -1,8 +1,67 @@
-# Smart Contract Boilerplate
+# ✨ Opinionated Wrappers ✨
+The discussion about approve() always ends with either:
 
-![Status][test-status]
+- We need to replace the ERC20 standard
+- We need more opnionated wallets
+- We need an alternative to the EVM
 
-This is a starter package for setting up a new Foundry project for Auxo. It builds on the foundry starter with a few additional setup steps and defined conventions that we use in Auxo projects.
+What if there is another way?
+✨ Introducining Opinionated Wrappers ✨
+
+Opinionated Wrappers (ow) are retro-compatible tokens allowing users to consistently enforce best practices without relaying on dapps and wallets to do the right thing.
+
+An infinite approval which lives indefinitely onchain is extremely dangerous! BUT it makes sense at the standard level to allow for all options.
+We should think at ERC20s as low level tech and build interfaces on top for most users instead.
+Having common users deal with ERC20s is like giving them root access by default.
+
+OW by default automatically reset the allowance to 0 after transferFrom() is called.
+
+You can explicitly default to the classic ERC20 behaviour if needed. 
+
+Goodbye reminding to remove approvals 👋
+
+Dapps always ask for uint256.max, with OW users can explicitly decide to:
+
+- Use max balance instead of uint256.max
+- Revert when uint256.max is requested
+- Enforce a custom value set by the user
+
+You can always fallback to default behaviour
+
+Shoudn't wallet and dapp be responsable?
+
+Relaying on wallets to create safeguards will always result in inconsistent user experiences.
+OW enforces user's selected best practices across all wallets and dapps.
+
+**Can we just replace ERC20s?**
+
+Well... No.
+The is no turning back, the network effect is just to strong, it will take years to do it and it's likely to fail.
+https://twitter.com/ChainLinkGod/status/1736194798598639636
+
+**What about smart contract wallets and AA?**
+
+First, it's not a silver bullet, the problem is likely to amplify instead.
+
+Second, people want to use EOAs, implementing safeguards should NOT force users to switch to a completely new way of doing things!
+
+https://twitter.com/GalloDaSballo/status/1736697338968572305
+
+
+**Didn't permit fixed this?**
+No, because it's again a low level tool.
+It makes sense as a standard to allow the deadline to be 2000 years from now.
+It doesn't make sense for 99.99% of real use cases.
+
+https://twitter.com/StakeWithPride/status/1736228804950204425
+
+OW enforces realistic values for using off-chain signatures with permit by limiting the most dangerous scenarios.
+
+You can always default to the low level behaviour if needed.
+
+
+----------------------------
+
 
 # Setup
 
