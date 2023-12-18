@@ -1,0 +1,16 @@
+# EditorConfig  http://EditorConfig.org
+# Unified editor settings, for vs code you will need to install an extension:
+# Name: EditorConfig for VS Code
+# https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
+
+# top-most EditorConfig file
+root = true
+
+# All files
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 4
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true

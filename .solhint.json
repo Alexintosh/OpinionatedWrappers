@@ -1,0 +1,11 @@
+{
+    "extends": "solhint:recommended",
+    "rules": {
+        "compiler-version": ["warn", "0.8.16"],
+        "avoid-low-level-calls": "off",
+        "not-rely-on-time": "off",
+        "var-name-mixedcase": "off",
+        "func-name-mixedcase": "off",
+        "contract-name-camelcase": "off"
+    }
+}
